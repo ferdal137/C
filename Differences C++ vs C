@@ -1,1 +1,16 @@
 
+# include <stdio.h>                                                         # include <iostream>
+
+                                                                             using namespace std;
+
+                                                                             
+int main(){                                                                  int main(){
+
+    printf("");                                                                 cout<<" ";
+
+    scanf("%c", &charname);                                                     cin>>charname;
+
+    printf("el inverso modulo 5 de %d es %d\n", a, inva);                       cout<<"El inverso modulo "<< a << " es "<<inva;
+
+    return = 0;
+}                                                                               }
