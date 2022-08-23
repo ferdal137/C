@@ -1,17 +1,16 @@
 
 #include <iostream>
 
-using namespace = std;
+using namespace std;
 
 int main(){
 
-  char unCaracter='a';  /*declaracion de una variable de tipo char inicializada  */
+  char UnCaracter = 'a';  
   int unEntero=23;   
-  double unReal=1.3
+  double unReal=1.3;
 
-  cout<<""
-
-
-
-    return = 0;
+  cout<<"Caracter: "<< UnCaracter;
+  cout<<"\nUn entero: "<< unEntero;
+  cout<<"\nUn real: "<< unReal;
+  
 }

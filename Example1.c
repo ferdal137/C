@@ -2,7 +2,7 @@
 
 int main()
 {
-  char unCaracter='a';  /*declaracion de una variable de tipo char inicializada  */
+  char unCaracter[2]='Aa';  /*declaracion de una variable de tipo char inicializada  */
   int unEntero=23;   
   double unReal=1.3;  
 
