@@ -27,10 +27,12 @@ int main(int argc, char *argv[])
   x=detx/det;
   y=dety/det;
 
+  det == 0.0?printf("El sistema tiene infinidad de soluciones o ninguna");
+
   printf("\nLa solucion es x=%lg, y=%lg.\n", x, y);
   printf("Fin del programa.\n");
 
-  return 0;
+  return 0; 
 }
 
 
