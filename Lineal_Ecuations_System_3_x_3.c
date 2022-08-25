@@ -10,7 +10,7 @@ int main(){
     double a, b, c, d, e, f, g, h, i, j, k, l, det, detx, dety, x, y;
 
   printf("Programa para la resolucion de un sistema lineal de dos ecuaiones con dos incognitas de la forma\n");
-  printf("ax+by+cz=c\ndx+ey=f\n");
+  printf("ax+by+cz=d\nex+gy+gz=h\nix+jy+kz=l");
   LEER(a, %lg);
   LEER(b, %lg);
   LEER(c, %lg);
@@ -21,8 +21,19 @@ int main(){
   LEER(h, %lg);
   LEER(i, %lg);
 
-  det=
+  det = det(a,b,c,e,f,g,i,j,k);
+  detx = det(d,b,c,h,f,g,l,j,k);
+  dety = det(a,d,c,e,h,g,i,l,k);
+  detz = det(a,b,d,e,f,h,i,j,l);
 
+  x = detx/det;
+  y = dety/det;
+  z = detz/det; 
+
+  det==0.0?printf("No hay solucion o hay infinitas soluciones"):printf()
+
+
+ return 0;
 
 
 }

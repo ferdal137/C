@@ -3,21 +3,22 @@
 using namespace std;
 
 #define DET(a, b, c, d)  ((a)*(d)-(b)*(c))
-#define LEER(X, fmt) cout<<"digite el valor de " #X ":";	\
-  cin>>#fmt, &(X)
+
 
 int main(){
 
   double a, b, c, d, e, f, det, detx, dety, x, y;
 
   cout<<"Programa para la resolucion de un sistema lineal de dos ecuaiones con dos incognitas de la forma\n";
-  cin>>"ax+by=c\ndx+ey=f\n";
-  LEER(a);
-  LEER(b);
-  LEER(c);
-  LEER(d);
-  LEER(e);
-  LEER(f);
+  cout<<"ax+by=c\ndx+ey=f\n";
+  cout<<"Escriba el valor: "; cin>>a;
+  cout<<"Escriba el valor: "; cin>>b;
+  cout<<"Escriba el valor: "; cin>>c;
+  cout<<"Escriba el valor: "; cin>>d;
+  cout<<"Escriba el valor: "; cin>>e;
+  cout<<"Escriba el valor: "; cin>>f;
+  
+ 
 
   det=DET(a, b, d, e);
   detx=DET(c, b, f, e);
@@ -28,7 +29,7 @@ int main(){
 
   //det == 0.0?cout<<"El sistema tiene infinidad de soluciones o ninguna";
 
-  cout<<"\nLa solucion es x=%lg, y=%lg.\n", x, y;
+  cout<<"\nLa solucion es x= " << x << " y=" << y;
   cout<<"Fin del programa.\n";
 
 
