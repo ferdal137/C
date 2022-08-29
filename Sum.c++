@@ -38,5 +38,4 @@ int main(){
     cout<<"Suma de los cubos de los primeros"<<n<<"numeros pares es:"<<s<<endl;
 
 
-
 }
