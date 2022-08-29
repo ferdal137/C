@@ -7,7 +7,8 @@ using namespace std;
 #define esCapicua(X) ((X)/10000==(X)%10?((X)%10000)/1000==((X)%100)/10?1:0:0)
 
 int main(){
-  int num;
+
+  int num, s_n;
 
   cout<<"Programa de ejemplo sobre numeros capicua de cinco digitos.\n";
   cout<<"Ingrese su entero positivo de cinco digitos:";
