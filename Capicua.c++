@@ -8,12 +8,13 @@ using namespace std;
 
 int main(){
 
-  int num, s_n;
+  int num;
+  char s_n[2];
 
   cout<<"Programa de ejemplo sobre numeros capicua de cinco digitos.\n";
   cout<<"Ingrese su entero positivo de cinco digitos:";
   cin>>num;
-  s_n = esCapicua(num)?"si":"no";
+  s_n = (esCapicua(num))?"si":"no";
   cout<<"El entero"<<num<<"dado"<<s_n<<"es capicua\n";
   cout<<"Fin del programa.\n";
 
