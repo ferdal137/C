@@ -1,0 +1,13 @@
+
+int tiempo_de_apertura = (día == FIN_DE_SEMANA) ? 12 : 9;
+
+
+
+
+
+int tiempo_de_apertura;
+
+if (día == FIN_DE_SEMANA)
+    tiempo_de_apertura = 12;
+else
+    tiempo_de_apertura = 9;
