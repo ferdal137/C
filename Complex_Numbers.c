@@ -4,11 +4,11 @@
 
 int main(int argc, char *argv){
 
-    doble a,b,r1,r2,r;
+    double a,b,r1,r2,r;
     printf("Este programa calcula las raices de un numero complejo: ");
-    printf("Introdusca el valor de la parte real: ");
+    printf("Introduzca el valor de la parte real: ");
     scanf("%d", &a);
-    printf("Introdusca el valor de la parte imaginaria: ");
+    printf("Introduzca el valor de la parte imaginaria: ");
     scanf("%d", &b);
     if(b==0.0){
         if(a>0.0){
@@ -16,7 +16,8 @@ int main(int argc, char *argv){
             printf("La soluciones son r1=%lg y r2=%lg",r1,-r1);
         }else if(a<0.0){
             r1=sqrt(-a);
-            printf("La soluciones son r1=%lg y r2=%lg",r1,-r1);
+            if(r1==1.0) printf("Las soluciones son i y -i");
+            else printf("La soluciones son r1=%lgi y r2=%lgi ",r1,-r1);
         }else{
             printf("0.0 es una solución doble");
         }
@@ -29,7 +30,7 @@ int main(int argc, char *argv){
         if(r2==1.0){
             printf("+i y r2=-%lg-i",r1);
         }else {
-            printf("+i%lg y r2=-%lg-i%lg",r2,r1,r2)
+            printf("+i%lg y r2=-%lg-i%lg",r2,r1,r2);
         }
     }
 
