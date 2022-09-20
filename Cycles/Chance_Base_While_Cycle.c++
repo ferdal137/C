@@ -22,7 +22,7 @@ int main()
   cout<<"ADVERTENCIA: el numero se escribira en forma invertida (se debe leer de derecha a izquierda)\n";
   while(aux){
     cout<<aux%base;
-    aux /=base;
+    aux /= base;
   }
 
   cout<<"\nfin del programa\n";
