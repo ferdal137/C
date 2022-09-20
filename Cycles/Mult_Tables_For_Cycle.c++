@@ -15,13 +15,13 @@ int main()
   }
 
   cout<<"escribe el indice inicial y final de los valores a recorrer\n";
-  cout<<"valor inicial (entre 1 y 100)";
+  cout<<"valor inicial (entre 1 y 100): ";
   cin>>ini;
   if (ini<=0 || 100<ini){
     ini = 25;
     cout<<"valor fuera de rango, se utilizara el valor de"<<ini;
   }
-  cout<<"valor final (entre "<<ini<<"y"<<ini+25;
+  cout<<"valor final (entre "<<ini<<" y "<<ini+25<<"): ";
   cin>>fin;
   if (fin<ini || (ini+25)<fin){
     fin = ini+25;
@@ -30,7 +30,7 @@ int main()
   }
 
   for (ind = ini; ind <=fin; ind++){
-    cout<<tab<<"x"<<ind<<tab*ind;
+    cout<<tab<<" x "<<ind<<tab*ind<<"\n";
   }
 
   cout<<"\nfin del programa\n";
