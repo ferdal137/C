@@ -1,7 +1,7 @@
 #include <stdio.h>    /*funciones de entrada y salida est'andar*/
 #include <stdlib.h>   /*funciones de la biblioteca est'andar*/
 
-union tipos {
+union tipos {           //sobre escribe en funcion del caracter con el numero de bite más largo
   char   unCar;
   int    unInt;
   double unRea;
