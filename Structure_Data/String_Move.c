@@ -16,8 +16,9 @@ int main(int argc, char *argv[])
                                //& para acceder a la memoria, en string la cadena ya viene con su memoria
 
   sprintf(texto, "%30sHola %s!!!", " ", cadena);
-  printf("La cadena generada es: <<%s>>\n", texto);
-  l = strlen(texto);
+  //sprint es para crear nuevas cadenas de caracteres
+  printf("La cadena generada es: <<%s>>\n", texto);   //%30s  30 espacios      Va a guardar la cadena en texto
+  l = strlen(texto);  //Nos da la longitud de la cadena de caracteres 
   for(j=0; j<1000; j++)
     for(i=0; i<l; i++){
       printf("\r%s", texto); 
@@ -26,5 +27,5 @@ int main(int argc, char *argv[])
       Sleep(100); /*el tiempo de espera se mide en milisegundos, asi 100 indica una decima de segundo*/
     }
 
-  return 0;
+  return 0;  
 }
