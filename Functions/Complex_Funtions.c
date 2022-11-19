@@ -71,7 +71,6 @@ void raices(COMP z){
         }
     }
 
-    }
     
     if (b<0.0){
     	printf("Las soluciones son: r1=%lg",r1);
@@ -81,5 +80,5 @@ void raices(COMP z){
 			printf("-i%lg y r2=-%lg+i%lg",r2,r1,r2);
 		}
 	}
-    
+
 }
