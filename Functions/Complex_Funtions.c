@@ -31,4 +31,6 @@ COMP leerC(){
     printf("Digite la parte imaginaria:");
     scanf("%lg", &(z.im));
 
+    return z;
+
 }
