@@ -15,13 +15,15 @@ COMP prod(COMP z, COMP y);
 
 int main(int argc, char *argv){
 
-    COMP A, B;
+    COMP A, B, C;
 
     A = leerC();
     printf("El primer numero complejo es: %lg %+lg i\n", A.re, A.im);
     B = leerC();
     printf("\nEl segundo numero complejo es : %lg %+lg i\n", B.re, B.im);
 
+
+    C = 
 
     //raices(A);
 
@@ -43,6 +45,24 @@ COMP leerC(){
     return z;
 
 }
+
+
+COMP suma(COMP z, COMP y){
+
+    COMP c;
+
+    c.re = z.re + y.re;
+    c.im = z.im + z.im;
+
+    return c;
+
+}
+
+
+COMP resta(COMP z, COMP y);
+
+
+COMP prod(COMP z, COMP y);
 
 
 
