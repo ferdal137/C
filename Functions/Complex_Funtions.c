@@ -25,10 +25,6 @@ int main(int argc, char *argv){
 
     //raices(A);
 
-
-
-
-
     return 0;
 
 }
