@@ -23,7 +23,8 @@ int main(int argc, char *argv){
     printf("\nEl segundo numero complejo es : %lg %+lg i\n", B.re, B.im);
 
 
-    C = 
+    C = suma(A, B);
+    printf("\nLa suma es : %lg %+lg i\n", C.re, C.im);
 
     //raices(A);
 
