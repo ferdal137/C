@@ -12,7 +12,6 @@ void raices(COMP z);
 COMP suma(COMP z, COMP y);
 COMP resta(COMP z, COMP y);
 COMP prod(COMP z, COMP y);
-COMP div(COMP z, COMP y);
 
 int main(int argc, char *argv){
 
