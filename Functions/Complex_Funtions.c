@@ -9,15 +9,22 @@ typedef struct complejos{
 
 COMP leerC();
 void raices(COMP z);
+COMP suma(COMP z, COMP y);
+COMP resta(COMP z, COMP y);
+COMP prod(COMP z, COMP y);
+COMP div(COMP z, COMP y);
 
 int main(int argc, char *argv){
 
-    COMP A;
+    COMP A, B;
 
     A = leerC();
-    printf("El numero complejo que digito fue: %lg %+lg i\n", A.re, A.im);
+    printf("El primer numero complejo es: %lg %+lg i\n", A.re, A.im);
+    B = leerC();
+    printf("\nEl segundo numero complejo es : %lg %+lg i\n", B.re, B.im);
 
-    raices(A);
+
+    //raices(A);
 
 
 
@@ -37,9 +44,12 @@ COMP leerC(){
     printf("Digite la parte imaginaria:");
     scanf("%lg", &(z.im));
 
+
     return z;
 
 }
+
+
 
 void raices(COMP z){
 
@@ -81,4 +91,5 @@ void raices(COMP z){
 		}
 	}
 
+}
 }
