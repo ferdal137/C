@@ -37,6 +37,10 @@ int main(int argc, char *argv){
     printf("La resta es: ");
     escrib(C);
 
+    C = prod(A, B);
+    printf("El producto es: ");
+    escrib(C);
+
     k = mod(A);
     printf("El modulo del primer gaussiano es: %f", k);
 
@@ -97,7 +101,12 @@ GAUSS resta(GAUSS z, GAUSS y){
 
 GAUSS prod(GAUSS z, GAUSS y){
     
+    GAUSS c;
     
+    c.re = (z.re*y.re) - (z.im*y.im);
+    c.im = (z.re*y.im) + (z.im*y.re);
+
+    return c;
 }
 
 float mod(GAUSS z){
