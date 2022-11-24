@@ -12,12 +12,13 @@ void raices(COMP z);
 COMP suma(COMP z, COMP y);
 COMP resta(COMP z, COMP y);
 COMP prod(COMP z, COMP y);
-int mod(COMP z);
+float mod(COMP z);
 void escrib(COMP z);
 
 int main(int argc, char *argv){
 
     COMP A, B, C;
+    float k;
 
     A = leerC();
     printf("El primer numero es: ");
@@ -36,11 +37,11 @@ int main(int argc, char *argv){
     printf("La resta es: ");
     escrib(C);
 
-    C = mod(A);
-    printf("El modulo del primer complejo es: %d", C);
+    k = mod(A);
+    printf("El modulo del primer complejo es: %f", k);
 
-    C = mod(B);
-    printf("El modulo del primer complejo es: %d", C);
+    k = mod(B);
+    printf("\nEl modulo del segundo complejo es: %f", k);
 
     //raices(A);
 
@@ -100,9 +101,9 @@ COMP prod(COMP z, COMP y){
     
 }
 
-int mod(COMP z){
+float mod(COMP z){
 
-    COMP c;
+    float c;
 
     c = sqrt((z.re*z.re)+(z.im*z.im));
 
