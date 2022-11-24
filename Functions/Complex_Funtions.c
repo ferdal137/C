@@ -106,6 +106,8 @@ COMP prod(COMP z, COMP y){
     
     c.re = (z.re*y.re) - (z.im*y.im);
     c.im = (z.re*y.im) + (z.im*y.re);
+
+    return c;
 }
 
 float mod(COMP z){
