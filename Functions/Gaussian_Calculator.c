@@ -7,44 +7,44 @@ typedef struct gaussianos{
     int im;
 }GAUSS;
 
-GAUSS leerC();
-void raices(GAUSS z);
-GAUSS suma(GAUSS z, GAUSS y);
-GAUSS resta(GAUSS z, GAUSS y);
-GAUSS prod(GAUSS z, GAUSS y);
-float mod(GAUSS z);
-void escrib(GAUSS z);
+GAUSS leerG();
+void raicesG(GAUSS z);
+GAUSS sumaG(GAUSS z, GAUSS y);
+GAUSS restaG(GAUSS z, GAUSS y);
+GAUSS prodG(GAUSS z, GAUSS y);
+float modG(GAUSS z);
+void escribG(GAUSS z);
 
 int main(int argc, char *argv){
 
     GAUSS A, B, C;
     float k;
 
-    A = leerC();
+    A = leerG();
     printf("El primer numero es: ");
-    escrib(A);
+    escribG(A);
     
-    B = leerC();
+    B = leerG();
     printf("El segundo numero es: ");
-    escrib(B);
+    escribG(B);
 
 
-    C = suma(A, B);
+    C = sumaG(A, B);
     printf("La suma es: ");
-    escrib(C);
+    escribG(C);
     
-    C = resta(A, B);
+    C = restaG(A, B);
     printf("La resta es: ");
-    escrib(C);
+    escribG(C);
 
-    C = prod(A, B);
+    C = prodG(A, B);
     printf("El producto es: ");
-    escrib(C);
+    escribG(C);
 
-    k = mod(A);
+    k = modG(A);
     printf("El modulo del primer gaussiano es: %f", k);
 
-    k = mod(B);
+    k = modG(B);
     printf("\nEl modulo del segundo gaussiano es: %f", k);
 
     //raices(A);
@@ -54,7 +54,7 @@ int main(int argc, char *argv){
 }
 
 
-GAUSS leerC(){
+GAUSS leerG(){
 
     GAUSS z;
 
@@ -68,14 +68,14 @@ GAUSS leerC(){
 
 }
 
-void escrib(GAUSS z){
+void escribG(GAUSS z){
     
     printf("%d %+d i\n", z.re, z.im);
     
     
 }
 
-GAUSS suma(GAUSS z, GAUSS y){
+GAUSS sumaG(GAUSS z, GAUSS y){
 
     GAUSS c;
     
@@ -87,7 +87,7 @@ GAUSS suma(GAUSS z, GAUSS y){
 }
 
 
-GAUSS resta(GAUSS z, GAUSS y){
+GAUSS restaG(GAUSS z, GAUSS y){
     
     GAUSS c;
     
@@ -99,7 +99,7 @@ GAUSS resta(GAUSS z, GAUSS y){
 }
 
 
-GAUSS prod(GAUSS z, GAUSS y){
+GAUSS prodG(GAUSS z, GAUSS y){
     
     GAUSS c;
     
@@ -109,7 +109,7 @@ GAUSS prod(GAUSS z, GAUSS y){
     return c;
 }
 
-float mod(GAUSS z){
+float modG(GAUSS z){
 
     float c;
 
