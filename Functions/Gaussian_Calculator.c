@@ -5,7 +5,7 @@
 typedef struct gaussianos{
     int re;
     int im;
-}COMP;
+}GAUSS;
 
 GAUSS leerC();
 void raices(GAUSS z);
