@@ -12,6 +12,7 @@ void raices(COMP z);
 COMP suma(COMP z, COMP y);
 COMP resta(COMP z, COMP y);
 COMP prod(COMP z, COMP y);
+int mod(COMP z);
 void escrib(COMP z);
 
 int main(int argc, char *argv){
@@ -93,7 +94,15 @@ COMP prod(COMP z, COMP y){
     
 }
 
+COMP mod(COMP z){
 
+    COMP c;
+
+    c = sqrt((z.re*z.re)+(z.im*z.im))
+
+    return c
+
+}
 
 void raices(COMP z){
 
