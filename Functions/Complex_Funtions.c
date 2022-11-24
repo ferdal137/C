@@ -37,6 +37,10 @@ int main(int argc, char *argv){
     printf("La resta es: ");
     escrib(C);
 
+    C = prod(A, B);
+    printf("El producto es: ");
+    escrib(C);
+
     k = mod(A);
     printf("El modulo del primer complejo es: %f", k);
 
@@ -98,7 +102,10 @@ COMP resta(COMP z, COMP y){
 
 COMP prod(COMP z, COMP y){
     
+    COMP c;
     
+    c.re = (z.re*y.re) - (z.im*y.im);
+    c.im = (z.re*y.im) + (z.im*y.re);
 }
 
 float mod(COMP z){
@@ -111,7 +118,7 @@ float mod(COMP z){
 
 }
 
-void raices(COMP z){
+/* void raices(COMP z){
 
     double a,b,r1,r2,r;
 
@@ -153,4 +160,4 @@ void raices(COMP z){
 
 }
 
-}
+} */
