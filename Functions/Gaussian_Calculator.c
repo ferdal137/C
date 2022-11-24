@@ -71,7 +71,7 @@ void escrib(GAUSS z){
     
 }
 
-GAUSS suma(GAUSS z, COMP y){
+GAUSS suma(GAUSS z, GAUSS y){
 
     GAUSS c;
     
