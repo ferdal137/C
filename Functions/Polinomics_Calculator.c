@@ -20,7 +20,7 @@ int esCero(Rx a);
 int main(int argc, char *argv[])
 {
   Rx a, b, q;
-  print("Este programa realiza la suma, resta, producto y division de polinomios");
+  printf("Este programa realiza la suma, resta, producto y division de polinomios");
   printf("Por leer los polinomios.\n");
   a=leeP();
   b=leeP();
@@ -30,16 +30,18 @@ int main(int argc, char *argv[])
   escP(b);
   printf("\nSuma:\n");
   q=suma(a, b);
+  escP(q);
   printf("\nResta:\n");
   q=rest(a, b);
+  escP(q);
   printf("\nProducto:\n");
   q=mult(a, b);
+  escP(q);
   if(esCero(b)){
   	printf("No se puede hacer la division");
   }
   printf("\nCociente:\n");
   q=divR(a, b);
-  printf("\n\nq = ");
   escP(q);
   printf("\n\nFin del programa\n");
 
@@ -91,7 +93,7 @@ int escP(Rx p)
 Rx suma(Rx a, Rx b)
 {
   Rx ret;
-  int i;
+  int i,min;
   if(a.g<b.g){
   	min = a.g;
   	ret.g = b.g;
@@ -100,14 +102,9 @@ Rx suma(Rx a, Rx b)
   	ret.g = a.g;	
   }
   
-  for(i=0;i<min;i++) ret.c[i]=a.c[i]c+b.c[i]c;
+  for(i=0;i<min;i++) ret.c[i]=a.c[i]+b.c[i];
   if(a.g<b.g) for(;i<=ret.g;i++) ret.c[i]=b.c[i];
   else for(;i<=ret.g;i++) ret.c[i]=a.c[i];
-  
-  
-  for (i=0; i<=GRADMAX; i++) ret.c[i]=0.0;
-  ret.g = a.g<b.g?b.g:a.g;
-  for (i=0; i<=ret.g; i++) ret.c[i]=a.c[i]+b.c[i];
  
   while(ret.g>=0 && ret.c[ret.g]==0.0) ret.g--;
   return ret;
@@ -190,5 +187,8 @@ Rx divR(Rx a, Rx b)
 
   return q;
 }
+
+
+
 
 
