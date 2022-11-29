@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-
+//
 #define GRADMAX 20
 
 typedef struct _Rx_{
