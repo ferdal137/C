@@ -20,7 +20,7 @@ int esCero(Rx a);
 int main(int argc, char *argv[])
 {
   Rx a, b, q;
-
+  print("Este programa realiza la suma, resta, producto y division de polinomios");
   printf("Por leer los polinomios.\n");
   a=leeP();
   b=leeP();
@@ -28,6 +28,15 @@ int main(int argc, char *argv[])
   escP(a);
   printf("\nb = ");
   escP(b);
+  printf("\nSuma:\n");
+  q=suma(a, b);
+  printf("\nResta:\n");
+  q=rest(a, b);
+  printf("\nProducto:\n");
+  q=mult(a, b);
+  if(esCero(b)){
+  	printf("No se puede hacer la division");
+  }
   printf("\nCociente:\n");
   q=divR(a, b);
   printf("\n\nq = ");
@@ -83,15 +92,23 @@ Rx suma(Rx a, Rx b)
 {
   Rx ret;
   int i;
-
+  if(a.g<b.g){
+  	min = a.g;
+  	ret.g = b.g;
+  } else{
+  	min = b.g;
+  	ret.g = a.g;	
+  }
+  
+  for(i=0;i<min;i++) ret.c[i]=a.c[i]c+b.c[i]c;
+  if(a.g<b.g) for(;i<=ret.g;i++) ret.c[i]=b.c[i];
+  else for(;i<=ret.g;i++) ret.c[i]=a.c[i];
+  
+  
   for (i=0; i<=GRADMAX; i++) ret.c[i]=0.0;
   ret.g = a.g<b.g?b.g:a.g;
   for (i=0; i<=ret.g; i++) ret.c[i]=a.c[i]+b.c[i];
-  /* En la suma, los sumandos podrian haber tenido el
-   * mismo grado, lo que podria implicar que el grado
-   * del polinomio suma fuera menor que el de los
-   * sumandos.
-   */
+ 
   while(ret.g>=0 && ret.c[ret.g]==0.0) ret.g--;
   return ret;
 }
@@ -124,6 +141,8 @@ Rx mult(Rx a, Rx b)
     for(j=0; j<=b.g; j++)
       ret.c[i+j]+=a.c[i]+b.c[j];
 
+  while(ret.g>=0 && ret.c[ret.g]==0.0) ret.g--;
+
   return ret;
 }
 
@@ -135,6 +154,8 @@ Rx multMonomio(Rx a, double c, int e)
   for (i=0; i<=GRADMAX; i++) ret.c[i]=0.0;
   ret.g=a.g+e;
   for (i=e; i<=ret.g; i++) ret.c[i]=a.c[i-e]*c;
+
+  while(ret.g>=0 && ret.c[ret.g]==0.0) ret.g--;
 
   return ret;
 }
