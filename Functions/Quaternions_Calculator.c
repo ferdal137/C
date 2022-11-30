@@ -75,7 +75,7 @@ QUA leerQ(){
 
 void escribQ(QUA z){
     
-    printf("%lg %+lg i %+lg j %+lg k\n", z.re, z.im);
+    printf("%lg %+lg i %+lg j %+lg k\n", z.re, z.i, z.j, z.k);
     
     return 0;
     
