@@ -86,7 +86,9 @@ QUA suma(QUA z, QUA y){
     QUA c;
     
     c.re = z.re + y.re;
-    c.im = z.im + y.im;
+    c.i = z.i + y.i;
+    c.j = z.j + y.j;
+    c.k = z.k + y.k;
 
     return c;
 
@@ -98,7 +100,9 @@ QUA resta(QUA z, QUA y){
     QUA c;
     
     c.re = z.re - y.re;
-    c.im = z.im - y.im;
+    c.i = z.i - y.i;
+    c.j = z.j - y.j;
+    c.k = z.k - y.k;
 
     return c;
     
@@ -109,8 +113,10 @@ QUA prod(QUA z, QUA y){
     
     QUA c;
     
-    c.re = (z.re*y.re) - (z.im*y.im);
-    c.im = (z.re*y.im) + (z.im*y.re);
+    c.re = (z.re*y.re) - (z.i*y.i) - (z.j*y.j) - (z.k*y.k);
+    c.i =  (z.re*y.re) + (z.i*y.re) + (z.j*y.k) - (z.k*y.j);
+    c.j =  (z.re*y.j) - (z.i*y.k) + (z.j*y.re) + (z.k*y.i);
+    c.k =  (z.re*y.k) + (z.i*y.j) - (z.j*y.i) + (z.k*y.re);
 
     return c;
 }
@@ -119,7 +125,7 @@ float mod(QUA z){
 
     float c;
 
-    c = sqrt((z.re*z.re)+(z.im*z.im));
+    c = sqrt((z.re*z.re)+(z.i*z.i)+(z.j*z.j)+(z.k*z.k));
 
     return c;
 
