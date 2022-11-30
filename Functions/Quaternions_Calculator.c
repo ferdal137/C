@@ -21,31 +21,31 @@ int main(int argc, char *argv){
     QUA A, B, C;
     float k;
 
-    A = leerC();
+    A = leerQ();
     printf("El primer quaternion es: ");
     escrib(A);
     
-    B = leerC();
+    B = leerQ();
     printf("El segundo quaternion es: ");
     escrib(B);
 
 
-    C = suma(A, B);
+    C = sumaQ(A, B);
     printf("La suma es: ");
     escrib(C);
     
-    C = resta(A, B);
+    C = restaQ(A, B);
     printf("La resta es: ");
     escrib(C);
 
-    C = prod(A, B);
+    C = prodQ(A, B);
     printf("El producto es: ");
     escrib(C);
 
-    k = mod(A);
+    k = modQ(A);
     printf("El modulo del primer quaternion es: %f", k);
 
-    k = mod(B);
+    k = modQ(B);
     printf("\nEl modulo del segundo quaternion es: %f", k);
 
     //raices(A);
