@@ -4,7 +4,9 @@
 
 typedef struct complejos{
     double re;
-    double im;
+    double i;
+    double j;
+    double k;
 }COMP;
 
 COMP leerC();
