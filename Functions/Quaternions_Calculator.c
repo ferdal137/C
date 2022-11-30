@@ -75,7 +75,7 @@ QUA leerC(){
 
 void escrib(QUA z){
     
-    printf("%lg %+lg i\n", z.re, z.im);
+    printf("%lg %+lg i %+lg j %+lg k\n", z.re, z.im);
     
     return 0;
     
