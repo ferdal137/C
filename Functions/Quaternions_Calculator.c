@@ -2,32 +2,31 @@
 # include <stdlib.h>
 # include <math.h>
 
-typedef struct complejos{
+typedef struct quaterniones{
     double re;
     double i;
     double j;
     double k;
-}COMP;
+}QUA;
 
-COMP leerC();
-void raices(COMP z);
-COMP suma(COMP z, COMP y);
-COMP resta(COMP z, COMP y);
-COMP prod(COMP z, COMP y);
-float mod(COMP z);
-void escrib(COMP z);
+QUA leerQ();
+QUA sumaQ(QUA z, QUA y);
+QUA restaQ(QUA z, QUA y);
+QUA prodQ(QUA z, QUA y);
+float modQ(QUA z);
+void escribQ(QUA z);
 
 int main(int argc, char *argv){
 
-    COMP A, B, C;
+    QUA A, B, C;
     float k;
 
     A = leerC();
-    printf("El primer numero es: ");
+    printf("El primer quaternion es: ");
     escrib(A);
     
     B = leerC();
-    printf("El segundo numero es: ");
+    printf("El segundo quaternion es: ");
     escrib(B);
 
 
@@ -44,10 +43,10 @@ int main(int argc, char *argv){
     escrib(C);
 
     k = mod(A);
-    printf("El modulo del primer complejo es: %f", k);
+    printf("El modulo del primer quaternion es: %f", k);
 
     k = mod(B);
-    printf("\nEl modulo del segundo complejo es: %f", k);
+    printf("\nEl modulo del segundo quaternion es: %f", k);
 
     //raices(A);
 
@@ -56,21 +55,25 @@ int main(int argc, char *argv){
 }
 
 
-COMP leerC(){
+QUA leerC(){
 
-    COMP z;
+    QUA z;
 
-    printf("Por leer un numero complejo.\nDigite la parte real:");
+    printf("Por leer un quaternion.\nDigite la parte real:");
     scanf("%lg", &(z.re));
-    printf("Digite la parte imaginaria:");
-    scanf("%lg", &(z.im));
+    printf("Digite la parte i:");
+    scanf("%lg", &(z.i));
+    printf("Digite la parte j:");
+    scanf("%lg", &(z.j));
+    printf("Digite la parte k:");
+    scanf("%lg", &(z.k));
 
 
     return z;
 
 }
 
-void escrib(COMP z){
+void escrib(QUA z){
     
     printf("%lg %+lg i\n", z.re, z.im);
     
@@ -78,9 +81,9 @@ void escrib(COMP z){
     
 }
 
-COMP suma(COMP z, COMP y){
+QUA suma(QUA z, QUA y){
 
-    COMP c;
+    QUA c;
     
     c.re = z.re + y.re;
     c.im = z.im + y.im;
@@ -90,9 +93,9 @@ COMP suma(COMP z, COMP y){
 }
 
 
-COMP resta(COMP z, COMP y){
+QUA resta(QUA z, QUA y){
     
-    COMP c;
+    QUA c;
     
     c.re = z.re - y.re;
     c.im = z.im - y.im;
@@ -102,9 +105,9 @@ COMP resta(COMP z, COMP y){
 }
 
 
-COMP prod(COMP z, COMP y){
+QUA prod(QUA z, QUA y){
     
-    COMP c;
+    QUA c;
     
     c.re = (z.re*y.re) - (z.im*y.im);
     c.im = (z.re*y.im) + (z.im*y.re);
@@ -112,7 +115,7 @@ COMP prod(COMP z, COMP y){
     return c;
 }
 
-float mod(COMP z){
+float mod(QUA z){
 
     float c;
 
