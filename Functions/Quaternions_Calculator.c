@@ -23,24 +23,24 @@ int main(int argc, char *argv){
 
     A = leerQ();
     printf("El primer quaternion es: ");
-    escrib(A);
+    escribQ(A);
     
     B = leerQ();
     printf("El segundo quaternion es: ");
-    escrib(B);
+    escribQ(B);
 
 
     C = sumaQ(A, B);
     printf("La suma es: ");
-    escrib(C);
+    escribQ(C);
     
     C = restaQ(A, B);
     printf("La resta es: ");
-    escrib(C);
+    escribQ(C);
 
     C = prodQ(A, B);
     printf("El producto es: ");
-    escrib(C);
+    escribQ(C);
 
     k = modQ(A);
     printf("El modulo del primer quaternion es: %f", k);
@@ -55,7 +55,7 @@ int main(int argc, char *argv){
 }
 
 
-QUA leerC(){
+QUA leerQ(){
 
     QUA z;
 
@@ -73,7 +73,7 @@ QUA leerC(){
 
 }
 
-void escrib(QUA z){
+void escribQ(QUA z){
     
     printf("%lg %+lg i %+lg j %+lg k\n", z.re, z.im);
     
@@ -81,7 +81,7 @@ void escrib(QUA z){
     
 }
 
-QUA suma(QUA z, QUA y){
+QUA sumaQ(QUA z, QUA y){
 
     QUA c;
     
@@ -95,7 +95,7 @@ QUA suma(QUA z, QUA y){
 }
 
 
-QUA resta(QUA z, QUA y){
+QUA restaQ(QUA z, QUA y){
     
     QUA c;
     
@@ -109,7 +109,7 @@ QUA resta(QUA z, QUA y){
 }
 
 
-QUA prod(QUA z, QUA y){
+QUA prodQ(QUA z, QUA y){
     
     QUA c;
     
@@ -121,7 +121,7 @@ QUA prod(QUA z, QUA y){
     return c;
 }
 
-float mod(QUA z){
+float modQ(QUA z){
 
     float c;
 
