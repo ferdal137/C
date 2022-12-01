@@ -3,7 +3,7 @@
 
 void CB (int n, int b);
 
-int main(int argc[], char *argc[]){
+int main(){
 	
 	int n, b;
     printf("Digite dos enteros");
@@ -17,9 +17,10 @@ void CB (int n, int b){
 	int aux;
 	
 	if(n==0) return;
-	CD(n/b,b);
+	CB(n/b,b);
 	aux = n%b;
-	if(aux<10) print("%d", aux);
-	else printf("%c".'A'+aux-10);
-	print("%d", aux);
+	if(aux<10) printf("%d", aux);
+	else printf("%c",'A'+aux-10);
+	printf("%d", aux);
+	return;
 }
