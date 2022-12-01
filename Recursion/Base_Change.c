@@ -21,6 +21,5 @@ void CB (int n, int b){
 	aux = n%b;
 	if(aux<10) printf("%d", aux);
 	else printf("%c",'A'+aux-10);
-	printf("%d", aux);
 	return;
 }
