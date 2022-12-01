@@ -5,8 +5,10 @@ void CB (int n, int b);
 
 int main(int argc[], char *argc[]){
 	
-	
-	
+	int n, b;
+    printf("Digite dos enteros");
+    scanf("&d &d",n,b);
+	CB(n,b);
 	
 	return 0;
 }
