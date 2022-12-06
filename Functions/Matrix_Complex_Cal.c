@@ -13,7 +13,7 @@ typedef struct complejos{
 
 typedef struct matriz{
   int n, m;
-  Q A[MAXREN][MAXCOL];
+  COMP A[MAXREN][MAXCOL];
 }MATRIZ;
 
 /*
