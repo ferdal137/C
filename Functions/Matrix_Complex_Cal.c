@@ -20,17 +20,8 @@ typedef struct matriz{
  * Declaracion de funciones de un ejemplo anterior sobre
  * operaciones de racionales
  */
-int mcd(int a, int b);
-Q sumaQ(Q a, Q b);    
-Q restaQ(Q a, Q b);
-Q prodQ(Q a, Q b);
-Q divQ(Q a, Q b);
-Q simplificaQ(Q a);
-void escribeQ(Q a);    
-Q creaQ(int num, int den);
 
 COMP leerC();
-void raices(COMP z);
 COMP suma(COMP z, COMP y);
 COMP resta(COMP z, COMP y);
 COMP prod(COMP z, COMP y);
