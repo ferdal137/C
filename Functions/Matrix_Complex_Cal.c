@@ -29,6 +29,14 @@ Q simplificaQ(Q a);
 void escribeQ(Q a);    
 Q creaQ(int num, int den);
 
+COMP leerC();
+void raices(COMP z);
+COMP suma(COMP z, COMP y);
+COMP resta(COMP z, COMP y);
+COMP prod(COMP z, COMP y);
+float mod(COMP z);
+void escrib(COMP z);
+
 /*
  * Declaracion de funciones para el manejo de matrices
  */
