@@ -3,9 +3,10 @@
 #include <time.h>     /funciones de la biblioteca time, manejo de hora y fechas/   
 #include <string.h>   /funciones de la biblioteca string, manejo de cadenas de caracteres/
 
-typedef struct Q{
-  int p, q;        
-}Q;
+typedef struct complejos{
+    double re;
+    double im;
+}COMP;
 
 #define MAXREN 10
 #define MAXCOL 10
