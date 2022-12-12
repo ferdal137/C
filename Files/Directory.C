@@ -1,5 +1,10 @@
 /*
-grthrthth
+Leer contacto
+Agregar contacto
+Borrar contacto
+Editar contacto
+Mostrar contacto
+Borrar toda la agenda
 
 */
 
