@@ -1,3 +1,10 @@
+/*
+ar  er  ir 
+
+16 tiempos
+
+*/
+
 #include <stdio.h>    
 #include <stdlib.h>   
 #include <string.h>
