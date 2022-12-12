@@ -6,6 +6,8 @@ Editar contacto
 Mostrar contacto
 Borrar toda la agenda
 
+Agregar más tipos de datos: int doble punteroa para añadir más datos al directorio
+
 */
 
 #include <stdio.h>
