@@ -23,7 +23,9 @@ typedef struct _entradaDirectorio_{
 }EntradaDirectorio;                                         
 
 int agregaEntradaAlFinal(FILE *directorio, EntradaDirectorio info);
-int obtenEntrada(FILE *directorio, EntradaDirectorio *info);       
+int obtenEntrada(FILE *directorio, EntradaDirectorio *info); 
+int MostrarContactos(FILE *directorio);
+int EditarCampoContacto(FILE *directorio, intc, int cont, int tc);      
 
 int main(int argc, char *argv[])
 {                               
@@ -113,4 +115,62 @@ int obtenEntrada(FILE *directorio, EntradaDirectorio *info)
   }
 
   return 0;
+  
+int MostrarContactos(FILE *directorio){
+	EntradaDirectorio entrada;
+	int i,ret;
+	ret = fseek(directorio,0L, SEEK_SET);
+	
+	if(ret<0){
+		printf("Error al ir al inicio del archivo");
+		return -1;
+	}
+	
+	for(i=0; !feof(directorio);i++){
+		if(obtenEntrada(archivoBinraio,&entrada)<0) break;
+		printf("",
+				entrada.nombre,entrada);
+		ret = fseek(directorio,0L, SEEK_SET)
+		
+	}
+	
+	return i;
+}
+
+int EditarCampoContacto(FILE *directorio, intc, int cont, int tc){
+	EntradaDirectorio *entrada;
+	int i, ret;
+	
+	ret = fseek(directorio,0L, SEEK_SET);
+	
+	if(ret<0){
+		printf("Error al ir al inicio del archivo");
+		return -1;
+	}
+	
+	entrada = (EntradaDirectorio*)malloc(tc*sizeof(EntradaDirectorio));
+	for(i=0; !feof(directorio);i++){
+		if(obtenEntrada(archivoBinraio,&entrada)<0) break;
+	
+	fclose(Directorio);
+	directorio = fopen();
+	
+	if (archivoBinario == NULL){
+    int errAuxiliar;          
+    errAuxiliar = errno;      
+    fprintf(stderr, "No se pudo abrir el archivo \"directorio.bin\" (%d:%s)\n", 
+errAuxiliar, strerror(errAuxiliar));                                            
+    return 0;                                                                   
+  }   
+	
+	
+	switch(){
+	
+		
+		
+	}
+	
+	return 0;
+}
+
 }
