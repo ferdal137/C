@@ -78,7 +78,7 @@ int conjugacionRegular(FILE *archivo, char raizVerboAR[])
 	  fprintf(archivo,"\n\n ");
   for (persona=0; persona<TotalPronombres; persona++)
    {
-		for(tiempo=persona;tiempo<2*TotalPronombres;tiempo+=6) 
+		for(tiempo=persona;tiempo<3*TotalPronombres;tiempo+=6) 
 	  		fprintf(archivo, "%8s %s%s", Pronombres[persona], 
     		        raizVerboAR, DesidenciaSimpleAR[tiempo]); 
         fprintf(archivo, "\n");
