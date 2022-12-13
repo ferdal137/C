@@ -65,6 +65,7 @@ MATRIZ creaEspacioMatriz(int m, int n)
 int leeMatriz(MATRIZ *mat)
 {
   int m, n, i, j;
+  COMP z;
 
   if (mat == NULL) return -1; /*codigo de error*/
   printf("Digite numero de renglones m:");
@@ -76,14 +77,12 @@ int leeMatriz(MATRIZ *mat)
   for(i=0; i<m; i++)
     for (j=0; j<n; j++){
       printf("Por leer un numero complejo de la celda [%2d, %2d]= ", i, j);
-      printf(\n"Digite la parte real:");
+      printf("\nDigite la parte real: ");
       scanf("%lg", &(z.re)); 
       printf("Digite la parte imaginaria:");
       scanf("%lg", &(z.im));
       //printf("[%2d, %2d]=", i, j);
-      scanf()
-      printf("[%2d, %2d]=", i, j);
-      scanf("%lg", &(mat->A[i][j]));
+      mat->A[i][j] = z;
     }
 
   return 0; /*codigo de terminacion exita*/
