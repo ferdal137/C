@@ -6,6 +6,11 @@ typedef struct _matriz_{
   double **A;
 }MATRIZ;
 
+typedef struct complejos{
+    double re;
+    double im;
+}COMP;
+
 MATRIZ creaEspacioMatriz(int m, int n);
 int leeMatriz(MATRIZ *mat);
 int escMatriz(MATRIZ mat);
@@ -70,6 +75,13 @@ int leeMatriz(MATRIZ *mat)
   printf("digite las entradas de la matriz:\n");
   for(i=0; i<m; i++)
     for (j=0; j<n; j++){
+      printf("Por leer un numero complejo de la celda [%2d, %2d]= ", i, j);
+      printf(\n"Digite la parte real:");
+      scanf("%lg", &(z.re)); 
+      printf("Digite la parte imaginaria:");
+      scanf("%lg", &(z.im));
+      //printf("[%2d, %2d]=", i, j);
+      scanf()
       printf("[%2d, %2d]=", i, j);
       scanf("%lg", &(mat->A[i][j]));
     }
