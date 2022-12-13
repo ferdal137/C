@@ -1,7 +1,7 @@
-#include <stdio.h>    
-#include <stdlib.h>   
-#include <string.h>
-#include <locale.h>
+#include <stdio.h>       
+#include <stdlib.h>    
+#include <string.h>  
+#include <locale.h> 
 
 enum pronombres {YO, TU, EL, NOSOTROS, USTEDES, ELLOS, TotalPronombres};
 enum tiemposSimples {PRESENTE, PRETERITO, FUTURO, COPRETERITO, POSTPRETERITO, TotalTiemposSimples};                                                             
