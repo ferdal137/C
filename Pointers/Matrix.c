@@ -83,7 +83,7 @@ int leeMatriz(MATRIZ *mat)
       printf("Digite la parte imaginaria:");
       scanf("%lg", &(z.im));
       //printf("[%2d, %2d]=", i, j);
-      printf(z);
+      printf("%lg %+lg i\n", z.re, z.im);
       mat->A[i][j] = z;
     }
 
