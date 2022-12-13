@@ -1,15 +1,16 @@
 #include <stdio.h>    /*funciones de entrada y salida est'andar*/
 #include <stdlib.h>   /*funciones de la biblioteca est'andar*/   
 
-typedef struct _matriz_{
-  int m, n;
-  double **A;
-}MATRIZ;
-
 typedef struct complejos{
     double re;
     double im;
 }COMP;
+
+typedef struct _matriz_{
+  int m, n;
+  COMP **A;
+}MATRIZ;
+
 
 MATRIZ creaEspacioMatriz(int m, int n);
 int leeMatriz(MATRIZ *mat);
