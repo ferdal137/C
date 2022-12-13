@@ -1,13 +1,7 @@
-/*
-ar  er  ir 
-
-16 tiempos
-
-*/
-
 #include <stdio.h>    
 #include <stdlib.h>   
 #include <string.h>
+#include <locale.h>
 
 enum pronombres {YO, TU, EL, NOSOTROS, USTEDES, ELLOS, TotalPronombres};
 enum tiemposSimples {PRESENTE, PRETERITO, FUTURO, COPRETERITO, POSTPRETERITO, TotalTiemposSimples};                                                             
@@ -16,13 +10,13 @@ enum tiemposSimples {PRESENTE, PRETERITO, FUTURO, COPRETERITO, POSTPRETERITO, To
 
 typedef char enBasePronombres[TotalPronombres*TotalTiemposSimples][LONGMAX];
 
-char *ModoIndicativoSimple[]={"Presente", "Pret'erito", "Futuro",
-                             "Copret'erito", "Postpret'erito"};  
+char *ModoIndicativoSimple[]={"Presente", "Pretérito", "Futuro",
+                             "Copretérito", "Postpretérito"};  
 enBasePronombres DesidenciaSimpleAR = {"o       ","as      ","a       ","amos    ","an     ","an      ",
 									   "e       ","aste    ","o       ","amos    ","aron    ","aron   ",
 									   "are      ","aras   ","ara     ","aremos    ","aran    ","aran    "};                                                                             
 
-enBasePronombres Pronombres = {"yo", "t'u", "'el", "nosotros", "ustedes", "ellos"};                                                                             
+enBasePronombres Pronombres = {"yo", "tú", "él", "nosotros", "ustedes", "ellos"};                                                                             
 
 int conjugacionRegular(FILE *archivo, char raizVerboAR[]);                                                                          
 
@@ -31,7 +25,9 @@ int main(int argc, char *argv[])
   FILE *miArchivo;              
   char buffer[128];             
   int lbuffer;                  
-
+	
+  setlocale(LC_ALL,"");
+	
   miArchivo = fopen("misVerbos.txt", "a");
 
   if (miArchivo == NULL){
@@ -39,7 +35,7 @@ int main(int argc, char *argv[])
     return 0;                                                          
   }                                                                    
   printf("Escriba un verbo regular terminado en ar (ADVERTENCIA: No atender "
-         "a esta instrucci'on ocasionar'a un resultado inesperado :-) ):");  
+         "a esta instrucción ocasionará un resultado inesperado :-) ):");  
 
   scanf("%s", buffer);
   lbuffer = strlen(buffer);
@@ -67,8 +63,8 @@ int conjugacionRegular(FILE *archivo, char raizVerboAR[])
 
   for(tiempo=0;tiempo<=1;tiempo++)
    {
-  		titulo = strlen(ModoIndicativoSimple[tiempo])/3;
-	    centrado = (lverbo+lpronombre+ldesidencia+1)/3;
+  		titulo = strlen(ModoIndicativoSimple[tiempo])/2;
+	    centrado = (lverbo+lpronombre+ldesidencia+1)/2;
 	    if (centrado<=titulo) centrado=0;
   			else centrado -= titulo;         
 		sprintf(formato, "%%%ds%%s%%%ds", centrado, centrado+2);
