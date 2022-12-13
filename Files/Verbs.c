@@ -67,8 +67,8 @@ int conjugacionRegular(FILE *archivo, char raizVerboAR[])
 
   for(tiempo=0;tiempo<=1;tiempo++)
    {
-  		titulo = strlen(ModoIndicativoSimple[tiempo])/2;
-	    centrado = (lverbo+lpronombre+ldesidencia+1)/2;
+  		titulo = strlen(ModoIndicativoSimple[tiempo])/3;
+	    centrado = (lverbo+lpronombre+ldesidencia+1)/3;
 	    if (centrado<=titulo) centrado=0;
   			else centrado -= titulo;         
 		sprintf(formato, "%%%ds%%s%%%ds", centrado, centrado+2);
