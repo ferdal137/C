@@ -11,10 +11,27 @@ enum tiemposSimples {PRESENTE, PRETERITO, FUTURO, COPRETERITO, POSTPRETERITO, To
 typedef char enBasePronombres[TotalPronombres*TotalTiemposSimples][LONGMAX];
 
 char *ModoIndicativoSimple[]={"Presente", "Pretérito", "Futuro",
-                             "Copretérito", "Postpretérito"};  
+                             "Copretérito", "Postpretérito"}; 
+                        
+//char *ModoSubjuntivo
+							  
 enBasePronombres DesidenciaSimpleAR = {"o       ","as      ","a       ","amos    ","an     ","an      ",
-									   "e       ","aste    ","o       ","amos    ","aron    ","aron   ",
-									   "are      ","aras   ","ara     ","aremos    ","aran    ","aran    "};                                                                             
+									   "é       ","aste    ","ó       ","amos    ","aron    ","aron   ",
+									   "aré      ","arás   ","ará    ","aremos    ","aran    ","arán    ",
+									   "aba      ","abas   ","aba     ","ábamos    ","aban    ","aban    ",
+									   "aría      ","arías   ","antaría     ","ariamos    ","arian    ","arian    "};   
+
+enBasePronombres DesidenciaSimpleER = {"o       ","es      ","e       ","emos    ","en     ","en      ",
+									   "i       ","iste    ","ió       ","imos    ","ieron    ","ieron   ",
+									   "eré      ","erás   ","erá     ","eremos    ","erán    ","erán    ",
+									   "ía      ","ías    ","ía        ","íamos    ","ían    ","ían    ",
+									   "ería      ","erías   ","ería     ","eríamos    ","erían    ","erían    "}; 
+
+enBasePronombres DesidenciaSimpleIR = {"o       ","es      ","e       ","imos    ","en     ","en      ",
+									   "í       ","iste    ","ió       ","imos    ","ieron    ","ieron   ",
+									   "iré      ","irás   ","irá     ","iremos    ","irán    ","irán    ",
+									   "ía      ","ías    ","ía        ","íamos    ","ían    ","ían    ",
+									   "iría      ","irías   ","iría     ","iríamos    ","irían    ","irían    "};                                                                          
 
 enBasePronombres Pronombres = {"yo", "tú", "él", "nosotros", "ustedes", "ellos"};                                                                             
 
@@ -23,7 +40,7 @@ int conjugacionRegular(FILE *archivo, char raizVerboAR[]);
 int main(int argc, char *argv[])
 {                               
   FILE *miArchivo;              
-  char buffer[128];             
+  char buffer[128], terminacion[2];             
   int lbuffer;                  
 	
   setlocale(LC_ALL,"");
@@ -34,14 +51,13 @@ int main(int argc, char *argv[])
     fprintf(stderr, "No se pudo abrir el archivo \"misVerbos.txt\"\n");
     return 0;                                                          
   }                                                                    
-  printf("Escriba un verbo regular terminado en ar (ADVERTENCIA: No atender "
-         "a esta instrucción ocasionará un resultado inesperado :-) ):");  
-
+  printf("Escriba un verbo regular: ");
   scanf("%s", buffer);
   lbuffer = strlen(buffer);
-
-                                        
-  buffer[lbuffer-2]= '\0';                  
+  //terminacion = buffer[lbuffer-1]; // + buffer[lbuffer];
+  //printf(terminacion);
+                               
+  buffer[lbuffer-2]= '\0';    
 
   printf("Por conjugar verbo\n");
   conjugacionRegular(miArchivo, buffer);
@@ -61,7 +77,7 @@ int conjugacionRegular(FILE *archivo, char raizVerboAR[])
   
   lverbo = strlen(raizVerboAR)+2;
 
-  for(tiempo=0;tiempo<=1;tiempo++)
+  for(tiempo=0;tiempo<=4;tiempo++)
    {
   		titulo = strlen(ModoIndicativoSimple[tiempo])/2;
 	    centrado = (lverbo+lpronombre+ldesidencia+1)/2;
@@ -74,7 +90,7 @@ int conjugacionRegular(FILE *archivo, char raizVerboAR[])
 	  fprintf(archivo,"\n\n ");
   for (persona=0; persona<TotalPronombres; persona++)
    {
-		for(tiempo=persona;tiempo<3*TotalPronombres;tiempo+=6) 
+		for(tiempo=persona;tiempo<5*TotalPronombres;tiempo+=6) 
 	  		fprintf(archivo, "%8s %s%s", Pronombres[persona], 
     		        raizVerboAR, DesidenciaSimpleAR[tiempo]); 
         fprintf(archivo, "\n");
