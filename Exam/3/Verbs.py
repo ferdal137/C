@@ -35,7 +35,9 @@ enBasePronombres DesidenciaSimpleIR = {"o       ","es      ","e       ","imos   
 
 enBasePronombres Pronombres = {"yo", "tú", "él", "nosotros", "ustedes", "ellos"};                                                                             
 
-int conjugacionRegular(FILE *archivo, char raizVerbo[]);                                                                          
+int conjugacionRegularAR(FILE *archivo, char raizVerbo[]);         
+int conjugacionRegularER(FILE *archivo, char raizVerbo[]);  
+int conjugacionRegularIR(FILE *archivo, char raizVerbo[]);                                                                   
 
 int main(int argc, char *argv[])
 {                               
