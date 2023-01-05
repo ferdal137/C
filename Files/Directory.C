@@ -127,10 +127,10 @@ int MostrarContactos(FILE *directorio){
 	}
 	
 	for(i=0; !feof(directorio);i++){
-		if(obtenEntrada(archivoBinraio,&entrada)<0) break;
+		if(obtenEntrada(archivoBinario,&entrada)<0) break;
 		printf("",
 				entrada.nombre,entrada);
-		ret = fseek(directorio,0L, SEEK_SET)
+		ret = fseek(directorio,0L, SEEK_SET);
 		
 	}
 	
