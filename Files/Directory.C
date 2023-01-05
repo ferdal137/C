@@ -25,7 +25,7 @@ typedef struct _entradaDirectorio_{
 int agregaEntradaAlFinal(FILE *directorio, EntradaDirectorio info);
 int obtenEntrada(FILE *directorio, EntradaDirectorio *info); 
 int MostrarContactos(FILE *directorio);
-int EditarCampoContacto(FILE *directorio, intc, int cont, int tc);      
+int EditarCampoContacto(FILE *directorio, int c, int cont, int tc);      
 
 int main(int argc, char *argv[])
 {                               
