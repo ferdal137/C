@@ -14,6 +14,7 @@ GAUSS restaG(GAUSS z, GAUSS y);
 GAUSS prodG(GAUSS z, GAUSS y);
 float modG(GAUSS z);
 void escribG(GAUSS z);
+//Division?
 
 int main(int argc, char *argv){
 
