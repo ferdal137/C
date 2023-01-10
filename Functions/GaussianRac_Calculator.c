@@ -2,21 +2,21 @@
 # include <stdlib.h>
 # include <math.h>
 
-typedef struct gaussianos{
+typedef struct gaussianosr{
     float re;
     float im;
-}GAUSS;
+}GAUSSR;
 
-GAUSS leerGR();
-GAUSS sumaGR(GAUSS z, GAUSS y);
-GAUSS restaGR(GAUSS z, GAUSS y);
-GAUSS prodGR(GAUSS z, GAUSS y);
-float modGR(GAUSS z);
-void escribGR(GAUSS z);
+GAUSSR leerGR();
+GAUSSR sumaGR(GAUSSR z, GAUSSR y);
+GAUSSR restaGR(GAUSSR z, GAUSSR y);
+GAUSSR prodGR(GAUSSR z, GAUSSR y);
+float modGR(GAUSSR z);
+void escribGR(GAUSSR z);
 
 int main(int argc, char *argv){
 
-    GAUSS A, B, C;
+    GAUSSR A, B, C;
     float k;
 
     A = leerGR();
@@ -53,9 +53,9 @@ int main(int argc, char *argv){
 }
 
 
-GAUSS leerGR(){
+GAUSSR leerGR(){
 
-    GAUSS z;
+    GAUSSR z;
 
     printf("Por leer un numero gaussiano.\nDigite la parte real:");
     scanf("%f", &(z.re));
@@ -67,16 +67,16 @@ GAUSS leerGR(){
 
 }
 
-void escribGR(GAUSS z){
+void escribGR(GAUSSR z){
     
     printf("%f %+f i\n", z.re, z.im);
     
     
 }
 
-GAUSS sumaGR(GAUSS z, GAUSS y){
+GAUSSR sumaGR(GAUSSR z, GAUSSR y){
 
-    GAUSS c;
+    GAUSSR c;
     
     c.re = z.re + y.re;
     c.im = z.im + y.im;
@@ -86,9 +86,9 @@ GAUSS sumaGR(GAUSS z, GAUSS y){
 }
 
 
-GAUSS restaGR(GAUSS z, GAUSS y){
+GAUSSR restaGR(GAUSSR z, GAUSSR y){
     
-    GAUSS c;
+    GAUSSR c;
     
     c.re = z.re - y.re;
     c.im = z.im - y.im;
@@ -98,9 +98,9 @@ GAUSS restaGR(GAUSS z, GAUSS y){
 }
 
 
-GAUSS prodGR(GAUSS z, GAUSS y){
+GAUSSR prodGR(GAUSSR z, GAUSSR y){
     
-    GAUSS c;
+    GAUSSR c;
     
     c.re = (z.re*y.re) - (z.im*y.im);
     c.im = (z.re*y.im) + (z.im*y.re);
@@ -108,7 +108,7 @@ GAUSS prodGR(GAUSS z, GAUSS y){
     return c;
 }
 
-float modGR(GAUSS z){
+float modGR(GAUSSR z){
 
     float c;
 
@@ -116,4 +116,27 @@ float modGR(GAUSS z){
 
     return c;
 
+}
+
+GAUSSR divGR(C a, C b)
+{                
+  GAUSSR r, t, s;
+  double m;           
+  
+  s.im=b.im;
+  s.re=(0.0-b.re);
+  t=productoC(a, s);
+  
+  if(m==0.0){
+  	r.im=0.0;
+  	r.re=0.0;
+  	
+  	return r;
+  }
+  
+  m=b.im*b.im+b.re*b.re;
+  r.im=t.im/m;
+  r.re=t.re/m;
+
+  return r;
 }
