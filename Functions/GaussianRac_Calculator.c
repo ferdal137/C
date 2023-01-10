@@ -53,7 +53,7 @@ int main(int argc, char *argv){
 }
 
 
-GAUSS leerC(){
+GAUSS leerGR(){
 
     GAUSS z;
 
@@ -67,14 +67,14 @@ GAUSS leerC(){
 
 }
 
-void escrib(GAUSS z){
+void escribGR(GAUSS z){
     
     printf("%d %+d i\n", z.re, z.im);
     
     
 }
 
-GAUSS suma(GAUSS z, GAUSS y){
+GAUSS sumaGR(GAUSS z, GAUSS y){
 
     GAUSS c;
     
