@@ -11,6 +11,7 @@ GAUSSR leerGR();
 GAUSSR sumaGR(GAUSSR z, GAUSSR y);
 GAUSSR restaGR(GAUSSR z, GAUSSR y);
 GAUSSR prodGR(GAUSSR z, GAUSSR y);
+GAUSSR divGR(GAUSSR z, GAUSSR y);
 float modGR(GAUSSR z);
 void escribGR(GAUSSR z);
 
@@ -45,6 +46,10 @@ int main(int argc, char *argv){
 
     k = modGR(B);
     printf("\nEl modulo del segundo gaussiano es: %f", k);
+    
+    C = divGR(A, B);
+    printf("\nLa división es: ");
+    escribGR(C);
 
 
 
