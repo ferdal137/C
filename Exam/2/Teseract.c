@@ -1,27 +1,10 @@
-/**************************
- * Includes
- *
- **************************/
-
 #include <windows.h>
 #include <gl/gl.h>
-
-
-/**************************
- * Function Declarations
- *
- **************************/
 
 LRESULT CALLBACK WndProc (HWND hWnd, UINT message,
 WPARAM wParam, LPARAM lParam);
 void EnableOpenGL (HWND hWnd, HDC *hDC, HGLRC *hRC);
 void DisableOpenGL (HWND hWnd, HDC hDC, HGLRC hRC);
-
-
-/**************************
- * WinMain
- *
- **************************/
 
 int WINAPI WinMain (HINSTANCE hInstance,
                     HINSTANCE hPrevInstance,
@@ -36,7 +19,6 @@ int WINAPI WinMain (HINSTANCE hInstance,
     BOOL bQuit = FALSE;
     float theta = 0.0f;
 
-    /* register window class */
     wc.style = CS_OWNDC;
     wc.lpfnWndProc = WndProc;
     wc.cbClsExtra = 0;
@@ -49,23 +31,20 @@ int WINAPI WinMain (HINSTANCE hInstance,
     wc.lpszClassName = "GLSample";
     RegisterClass (&wc);
 
-    /* create main window */
     hWnd = CreateWindow (
       "GLSample", "OpenGL Sample", 
       WS_CAPTION | WS_POPUPWINDOW | WS_VISIBLE,
       0, 0, 256*4, 256*4,
       NULL, NULL, hInstance, NULL);
 
-    /* enable OpenGL for the window */
     EnableOpenGL (hWnd, &hDC, &hRC);
 
-    /* program main loop */
     while (!bQuit)
     {
-        /* check for messages */
+
         if (PeekMessage (&msg, NULL, 0, 0, PM_REMOVE))
         {
-            /* handle or dispatch messages */
+
             if (msg.message == WM_QUIT)
             {
                 bQuit = TRUE;
@@ -78,12 +57,9 @@ int WINAPI WinMain (HINSTANCE hInstance,
         }
         else
         {
-            /* OpenGL animation code goes here */
 
             glClearColor (0.0f, 0.0f, 0.0f, 0.0f);
             glClear (GL_COLOR_BUFFER_BIT);
-
-            //glPushMatrix ();
         	glColor3f(0.5f, 1.0f, 1.0f);
             glBegin (GL_LINES);
     
@@ -183,20 +159,13 @@ int WINAPI WinMain (HINSTANCE hInstance,
         }
     }
 
-    /* shutdown OpenGL */
     DisableOpenGL (hWnd, hDC, hRC);
 
-    /* destroy the window explicitly */
     DestroyWindow (hWnd);
 
     return msg.wParam;
 }
 
-
-/********************
- * Window Procedure
- *
- ********************/
 
 LRESULT CALLBACK WndProc (HWND hWnd, UINT message,
                           WPARAM wParam, LPARAM lParam)
@@ -228,20 +197,13 @@ LRESULT CALLBACK WndProc (HWND hWnd, UINT message,
 }
 
 
-/*******************
- * Enable OpenGL
- *
- *******************/
-
 void EnableOpenGL (HWND hWnd, HDC *hDC, HGLRC *hRC)
 {
     PIXELFORMATDESCRIPTOR pfd;
     int iFormat;
-
-    /* get the device context (DC) */
+    
     *hDC = GetDC (hWnd);
 
-    /* set the pixel format for the DC */
     ZeroMemory (&pfd, sizeof (pfd));
     pfd.nSize = sizeof (pfd);
     pfd.nVersion = 1;
@@ -254,17 +216,10 @@ void EnableOpenGL (HWND hWnd, HDC *hDC, HGLRC *hRC)
     iFormat = ChoosePixelFormat (*hDC, &pfd);
     SetPixelFormat (*hDC, iFormat, &pfd);
 
-    /* create and enable the render context (RC) */
     *hRC = wglCreateContext( *hDC );
     wglMakeCurrent( *hDC, *hRC );
 
 }
-
-
-/******************
- * Disable OpenGL
- *
- ******************/
 
 void DisableOpenGL (HWND hWnd, HDC hDC, HGLRC hRC)
 {
