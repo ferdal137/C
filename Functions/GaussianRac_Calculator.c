@@ -125,7 +125,7 @@ GAUSSR divGR(GAUSSR a, GAUSSR b)
   
   s.im=b.im;
   s.re=(0.0-b.re);
-  t=prodGAUSSR(a, s);
+  t=prodGR(a, s);
   
   if(m==0.0){
   	r.im=0.0;
