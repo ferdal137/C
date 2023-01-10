@@ -8,7 +8,6 @@ typedef struct gaussianos{
 }GAUSS;
 
 GAUSS leerG();
-void raicesG(GAUSS z);
 GAUSS sumaG(GAUSS z, GAUSS y);
 GAUSS restaG(GAUSS z, GAUSS y);
 GAUSS prodG(GAUSS z, GAUSS y);
