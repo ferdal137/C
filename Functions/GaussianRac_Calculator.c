@@ -118,7 +118,7 @@ float modGR(GAUSSR z){
 
 }
 
-GAUSSR divGR(C a, C b)
+GAUSSR divGR(GAUSSR a, GAUSSR b)
 {                
   GAUSSR r, t, s;
   double m;           
