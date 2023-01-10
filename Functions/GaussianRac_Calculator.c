@@ -58,9 +58,9 @@ GAUSS leerGR(){
     GAUSS z;
 
     printf("Por leer un numero gaussiano.\nDigite la parte real:");
-    scanf("%d", &(z.re));
+    scanf("%f", &(z.re));
     printf("Digite la parte imaginaria:");
-    scanf("%d", &(z.im));
+    scanf("%f", &(z.im));
 
 
     return z;
@@ -69,7 +69,7 @@ GAUSS leerGR(){
 
 void escribGR(GAUSS z){
     
-    printf("%d %+d i\n", z.re, z.im);
+    printf("%f %+f i\n", z.re, z.im);
     
     
 }
