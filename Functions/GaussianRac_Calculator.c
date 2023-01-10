@@ -86,7 +86,7 @@ GAUSS sumaGR(GAUSS z, GAUSS y){
 }
 
 
-GAUSS resta(GAUSS z, GAUSS y){
+GAUSS restaGR(GAUSS z, GAUSS y){
     
     GAUSS c;
     
@@ -98,7 +98,7 @@ GAUSS resta(GAUSS z, GAUSS y){
 }
 
 
-GAUSS prod(GAUSS z, GAUSS y){
+GAUSS prodGR(GAUSS z, GAUSS y){
     
     GAUSS c;
     
@@ -108,7 +108,7 @@ GAUSS prod(GAUSS z, GAUSS y){
     return c;
 }
 
-float mod(GAUSS z){
+float modGR(GAUSS z){
 
     float c;
 
