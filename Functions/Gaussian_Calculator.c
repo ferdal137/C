@@ -47,8 +47,6 @@ int main(int argc, char *argv){
     k = modG(B);
     printf("\nEl modulo del segundo gaussiano es: %f", k);
 
-    //raices(A);
-
     return 0;
 
 }
