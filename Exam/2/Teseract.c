@@ -34,7 +34,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
     hWnd = CreateWindow (
       "GLSample", "OpenGL Sample", 
       WS_CAPTION | WS_POPUPWINDOW | WS_VISIBLE,
-      0, 0, 256*4, 256*4,
+      0, 0, 512, 512,
       NULL, NULL, hInstance, NULL);
 
     EnableOpenGL (hWnd, &hDC, &hRC);
@@ -58,9 +58,9 @@ int WINAPI WinMain (HINSTANCE hInstance,
         else
         {
 
-            glClearColor (0.0f, 0.0f, 0.0f, 0.0f);
+            glClearColor (1.0f, 1.0f, 1.0f, 0.0f);
             glClear (GL_COLOR_BUFFER_BIT);
-        	glColor3f(0.5f, 1.0f, 1.0f);
+        	glColor3f(0.0f, 0.0f, 0.0f);
             glBegin (GL_LINES);
     
 			glVertex2f (-0.15, 0.1); //LADO IZQUIERDO PEQ.
@@ -92,7 +92,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
 			glVertex2f (0.2, -0.03);
 			
 //CUBO GRANDE
-			glColor3f(1.0f, 0.0f, 1.0f);
+			glColor3f(0.0f, 0.0f, 0.0f);
 			glVertex2f (-0.3, 0.3); //LADO IZQUIERDO 
 			glVertex2f (-0.3, -0.21);  
 			glVertex2f (0.35, 0.3); //LADO DERECHO 
@@ -116,7 +116,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
 			
 //UNIONES DE CUBOS
 //ARRIBA
-		glColor3f(0.0f, 0.0f, 1.0f);
+		glColor3f(0.0f, 0.0f, 0.0f);
 		glVertex2f (-0.15, 0.1);
 		glVertex2f (-0.3, 0.3);
 		glVertex2f (-0.15, -0.1);
@@ -139,7 +139,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
 		glVertex2f (-0.1, 0.4);
 		
 //LINEAS QUE UNEN AL CUBO GRANDE PREDETERMINADAS
-		glColor3f(1.0f, 0.0f, 1.0f);
+		glColor3f(0.0f, 0.0f, 0.0f);
 		glVertex2f (-0.1, 0.4);   //IZQUIERDA
 		glVertex2f (-0.1, -0.05);
 		
