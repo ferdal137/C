@@ -31,18 +31,25 @@ enBasePronombres DesidenciaSimpleIR = {"o       ","es      ","e       ","imos   
 									   "í       ","iste    ","ió       ","imos    ","ieron    ","ieron   ",
 									   "iré      ","irás   ","irá     ","iremos    ","irán    ","irán    ",
 									   "ía      ","ías    ","ía        ","íamos    ","ían    ","ían    ",
-									   "iría      ","irías   ","iría     ","iríamos    ","irían    ","irían    "};                                                                          
+									   "iría      ","irías   ","iría     ","iríamos    ","irían    ","irían    "}; 
+									  
+enBasePronombres DesidenciaCompuesta = {"he ","has ","ha ","hemos ","han ","han ",
+									   "hube ","hubiste ","hubo ","hubimos ","hubieron ","hubieron ",
+									   "habré ","habrás ","habrá ","habremos ","habrán ","habrán ",
+									   "había ","habías ","había ","habíamos ","habían ","habían ",
+									   "habría ","habrías ","habría ","habríamos ","habrían ","habrían "};                                                                         
 
 enBasePronombres Pronombres = {"yo", "tú", "él", "nosotros", "ustedes", "ellos"};                                                                             
 
-int conjugacionRegularAR(FILE *archivo, char raizVerbo[]);         
-int conjugacionRegularER(FILE *archivo, char raizVerbo[]);  
-int conjugacionRegularIR(FILE *archivo, char raizVerbo[]);                                                                   
+int conjugacionRegularAR(FILE *archivo, char raizVerbo[]);
+int conjugacionRegularER(FILE *archivo, char raizVerbo[]);
+int conjugacionRegularIR(FILE *archivo, char raizVerbo[]);
+int conjugacionCompuesta(FILE *archivo, char raizVerbo[], char ter_comp[]);                                                                      
 
 int main(int argc, char *argv[])
 {                               
   FILE *miArchivo;              
-  char buffer[128], ter;             
+  char buffer[128], ter, ter_comp[3] = "ado";             
   int lbuffer;                  
 	
   setlocale(LC_ALL,"");
@@ -66,14 +73,19 @@ int main(int argc, char *argv[])
   	switch(ter){
         case 'a':
             conjugacionRegularAR(miArchivo, buffer);
+            //ter_comp[3] = "ado";
+            //printf(ter_comp);
+            conjugacionCompuesta(miArchivo,buffer,ter_comp);
             break;
 
         case 'e':
             conjugacionRegularER(miArchivo, buffer);
+            conjugacionCompuesta(miArchivo,buffer,"ido");
             break;
 
         case 'i':
             conjugacionRegularIR(miArchivo, buffer);
+            conjugacionCompuesta(miArchivo,buffer,"ido");
             break;
 
     }
@@ -172,6 +184,36 @@ int conjugacionRegularIR(FILE *archivo, char raizVerbo[])
 		for(tiempo=persona;tiempo<5*TotalPronombres;tiempo+=6) 
 	  		fprintf(archivo, "%8s %s%s", Pronombres[persona], 
     		        raizVerbo, DesidenciaSimpleIR[tiempo]); 
+        fprintf(archivo, "\n");
+   }                                                           
+  fprintf(archivo, "\n");
+
+  return 0;  
+}
+
+int conjugacionCompuesta(FILE *archivo, char raizVerbo[],  char ter_comp[])                                                                           
+{                                                                               
+  int  lpronombre=8, ldesidencia=4,tiempo, lverbo, persona, centrado, titulo;           
+  char formato[1024];                                                           
+  
+  lverbo = strlen(raizVerbo)+2;
+
+  for(tiempo=0;tiempo<=4;tiempo++)
+   {
+  		titulo = strlen(ModoIndicativoSimple[tiempo])/2;
+	    centrado = (lverbo+lpronombre+ldesidencia+1)/2;
+	    if (centrado<=titulo) centrado=0;
+  			else centrado -= titulo;         
+		sprintf(formato, "%%%ds%%s%%%ds", centrado, centrado+2);
+	    fprintf(archivo, formato, " ", ModoIndicativoSimple[tiempo]," ");
+	    
+   }
+	  fprintf(archivo,"\n\n ");
+  for (persona=0; persona<TotalPronombres; persona++)
+   {
+		for(tiempo=persona;tiempo<5*TotalPronombres;tiempo+=6) 
+	  		fprintf(archivo, "%8s %s%s%s", Pronombres[persona], 
+    		        DesidenciaCompuesta[tiempo], raizVerbo, ter_comp);
         fprintf(archivo, "\n");
    }                                                           
   fprintf(archivo, "\n");
