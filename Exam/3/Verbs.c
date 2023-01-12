@@ -59,7 +59,9 @@ int main(int argc, char *argv[])
 {                               
   FILE *miArchivo;              
   char buffer[128], ter, ter_comp[3] = "ado", v[5] = "oler";             
-  int lbuffer, i, c=0;                  
+  int lbuffer, i;                  
+  char *x[] = {"oler",  "s", 0};
+  char *s;
 	
   setlocale(LC_ALL,"");
 	
@@ -71,45 +73,57 @@ int main(int argc, char *argv[])
   }                                                                    
   printf("Escriba un verbo regular o un verbo irregular de la siguiente lista: ");
   printf("\n- oler");
+  printf("\n");
   scanf("%s", buffer);
+  s = buffer;
   
-	for(i=0;v[i]!='\0';i++)  
-    {
-    	if(buffer[i]==v[i])
-    	 c++;
-    }
-    if(c==i)
-      conjugacionIrregular(miArchivo, v);
-    else{
+	while(x[i]) {
+		
+        if(strcmp(x[i], s) == 0) {
+        	
+        	printf("Por conjugar verbo\n");
+        	
+			if (strcmp(s,"oler")==0){
+				conjugacionIrregular(miArchivo, s);
+			}else if(s=="s"){
+				printf("funciona");
+			}
+			    	
+            break;
+            
+        }else{
     	
-  	lbuffer = strlen(buffer);
-  ter = buffer[lbuffer-2];
-                               
-  buffer[lbuffer-2]= '\0';    
-
-  printf("Por conjugar verbo\n");
-  	
-  	switch(ter){
-        case 'a':
-            conjugacionRegularAR(miArchivo, buffer);
-            conjugacionCompuesta(miArchivo,buffer,ter_comp);
-            break;
-
-        case 'e':
-            conjugacionRegularER(miArchivo, buffer);
-            conjugacionCompuesta(miArchivo,buffer,"ido");
-            break;
-
-        case 'i':
-            conjugacionRegularIR(miArchivo, buffer);
-            conjugacionCompuesta(miArchivo,buffer,"ido");
-            break;
-
-    }
-    
-  	printf("\n");
+	  	lbuffer = strlen(buffer);
+	  ter = buffer[lbuffer-2];
+	                               
+	  buffer[lbuffer-2]= '\0';    
+	
+	  printf("Por conjugar verbo\n");
+	  	
+	  	switch(ter){
+	        case 'a':
+	            conjugacionRegularAR(miArchivo, buffer);
+	            conjugacionCompuesta(miArchivo,buffer,ter_comp);
+	            break;
+	
+	        case 'e':
+	            conjugacionRegularER(miArchivo, buffer);
+	            conjugacionCompuesta(miArchivo,buffer,"ido");
+	            break;
+	
+	        case 'i':
+	            conjugacionRegularIR(miArchivo, buffer);
+	            conjugacionCompuesta(miArchivo,buffer,"ido");
+	            break;
+	
+	    }
+	    
+	  	printf("\n");
   	
   }
+        i++;
+    }
+    
   
   	
   //conjugacionRegular(miArchivo, buffer);
@@ -270,3 +284,4 @@ int conjugacionIrregular(FILE *archivo, char raizVerbo[])
 
   return 0;  
 }
+
