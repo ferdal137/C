@@ -12,6 +12,8 @@ typedef char enBasePronombres[TotalPronombres*TotalTiemposSimples][LONGMAX];
 
 char *ModoIndicativoSimple[]={"Presente", "Pretérito", "Futuro",
                              "Copretérito", "Postpretérito"}; 
+                             
+//Verbos Irregulares: servir, oler, caber, aislar, errar, soñar, soltar   https://conjugador.reverso.net/conjugacion-rules-modelo-espanol/modelo-soltar.html
                         
 //char *ModoSubjuntivo
 							  
@@ -37,20 +39,27 @@ enBasePronombres DesidenciaCompuesta = {"he ","has ","ha ","hemos ","han ","han 
 									   "hube ","hubiste ","hubo ","hubimos ","hubieron ","hubieron ",
 									   "habré ","habrás ","habrá ","habremos ","habrán ","habrán ",
 									   "había ","habías ","había ","habíamos ","habían ","habían ",
-									   "habría ","habrías ","habría ","habríamos ","habrían ","habrían "};                                                                         
+									   "habría ","habrías ","habría ","habríamos ","habrían ","habrían "};
+
+enBasePronombres Oler = {"huelo      ","hueles      ","huele       ","oelmos    ","huelen     ","huelen      ",
+						"olí      ","oliste   ","olío     ","olimos    ","olieron    ","olieron    ",
+					   "oleré      ","olerás   ","olerá    ","oleremos    ","olerán    ","olerán    ",
+					   "olía       ","olías    ","olía       ","olíamos    ","olían    ","olían   ",
+					   "olería      ","olerías   ","olería     ","oleríamos    ","olerian    ","olerian    "};                                                                       
 
 enBasePronombres Pronombres = {"yo", "tú", "él", "nosotros", "ustedes", "ellos"};                                                                             
 
 int conjugacionRegularAR(FILE *archivo, char raizVerbo[]);
 int conjugacionRegularER(FILE *archivo, char raizVerbo[]);
 int conjugacionRegularIR(FILE *archivo, char raizVerbo[]);
-int conjugacionCompuesta(FILE *archivo, char raizVerbo[], char ter_comp[]);                                                                      
+int conjugacionCompuesta(FILE *archivo, char raizVerbo[], char ter_comp[]); 
+int conjugacionIrregular(FILE *archivo, char raizVerbo[]);                                                                     
 
 int main(int argc, char *argv[])
 {                               
   FILE *miArchivo;              
-  char buffer[128], ter, ter_comp[3] = "ado";             
-  int lbuffer;                  
+  char buffer[128], ter, ter_comp[3] = "ado", v[5] = "oler";             
+  int lbuffer, i, c=0;                  
 	
   setlocale(LC_ALL,"");
 	
@@ -60,10 +69,20 @@ int main(int argc, char *argv[])
     fprintf(stderr, "No se pudo abrir el archivo \"misVerbos.txt\"\n");
     return 0;                                                          
   }                                                                    
-  printf("Escriba un verbo regular: ");
+  printf("Escriba un verbo regular o un verbo irregular de la siguiente lista: ");
+  printf("\n- oler");
   scanf("%s", buffer);
-  lbuffer = strlen(buffer);
-  //ter = buffer[1]; // + buffer[lbuffer];
+  
+	for(i=0;v[i]!='\0';i++)  
+    {
+    	if(buffer[i]==v[i])
+    	 c++;
+    }
+    if(c==i)
+      conjugacionIrregular(miArchivo, v);
+    else{
+    	
+  	lbuffer = strlen(buffer);
   ter = buffer[lbuffer-2];
                                
   buffer[lbuffer-2]= '\0';    
@@ -73,8 +92,6 @@ int main(int argc, char *argv[])
   	switch(ter){
         case 'a':
             conjugacionRegularAR(miArchivo, buffer);
-            //ter_comp[3] = "ado";
-            //printf(ter_comp);
             conjugacionCompuesta(miArchivo,buffer,ter_comp);
             break;
 
@@ -89,7 +106,11 @@ int main(int argc, char *argv[])
             break;
 
     }
+    
   	printf("\n");
+  	
+  }
+  
   	
   //conjugacionRegular(miArchivo, buffer);
   printf("Verbo Conjugado\n");                    
@@ -198,6 +219,35 @@ int conjugacionCompuesta(FILE *archivo, char raizVerbo[],  char ter_comp[])
   
   lverbo = strlen(raizVerbo)+2;
 
+  for(tiempo=0;tiempo<=4;tiempo++)   {
+  		titulo = strlen(ModoIndicativoSimple[tiempo])/2;
+	    centrado = (lverbo+lpronombre+ldesidencia+1)/2;
+	    if (centrado<=titulo) centrado=0;
+  			else centrado -= titulo;         
+		sprintf(formato, "%%%ds%%s%%%ds", centrado, centrado+2);
+	    fprintf(archivo, formato, " ", ModoIndicativoSimple[tiempo]," ");
+	    
+   }
+	  fprintf(archivo,"\n\n ");
+  for (persona=0; persona<TotalPronombres; persona++)
+   {
+		for(tiempo=persona;tiempo<5*TotalPronombres;tiempo+=6) 
+	  		fprintf(archivo, "%8s %s%s%s        ", Pronombres[persona], 
+    		        DesidenciaCompuesta[tiempo], raizVerbo, ter_comp);
+        fprintf(archivo, "\n");
+   }                                                           
+  fprintf(archivo, "\n");
+
+  return 0;  
+}
+
+int conjugacionIrregular(FILE *archivo, char raizVerbo[])                                                                           
+{                                                                               
+  int  lpronombre=8, ldesidencia=4,tiempo, lverbo, persona, centrado, titulo;           
+  char formato[1024];                                                           
+  
+  lverbo = strlen(raizVerbo)+2;
+
   for(tiempo=0;tiempo<=4;tiempo++)
    {
   		titulo = strlen(ModoIndicativoSimple[tiempo])/2;
@@ -212,8 +262,8 @@ int conjugacionCompuesta(FILE *archivo, char raizVerbo[],  char ter_comp[])
   for (persona=0; persona<TotalPronombres; persona++)
    {
 		for(tiempo=persona;tiempo<5*TotalPronombres;tiempo+=6) 
-	  		fprintf(archivo, "%8s %s%s%s", Pronombres[persona], 
-    		        DesidenciaCompuesta[tiempo], raizVerbo, ter_comp);
+	  		fprintf(archivo, "%8s %s", Pronombres[persona], 
+    		        Oler[tiempo]); 
         fprintf(archivo, "\n");
    }                                                           
   fprintf(archivo, "\n");
