@@ -34,7 +34,7 @@ int WINAPI WinMain (HINSTANCE hInstance,
     hWnd = CreateWindow (
       "GLSample", "OpenGL Sample", 
       WS_CAPTION | WS_POPUPWINDOW | WS_VISIBLE,
-      0, 0, 512, 512,
+      0, 0, 720, 720,
       NULL, NULL, hInstance, NULL);
 
     EnableOpenGL (hWnd, &hDC, &hRC);
@@ -62,93 +62,114 @@ int WINAPI WinMain (HINSTANCE hInstance,
             glClear (GL_COLOR_BUFFER_BIT);
         	glColor3f(0.0f, 0.0f, 0.0f);
             glBegin (GL_LINES);
-    
-			glVertex2f (-0.15, 0.1); //LADO IZQUIERDO PEQ.
-			glVertex2f (-0.15, -0.1);  
-			glVertex2f (0.1, 0.1); //LADO DERECHO PEQ.
-			glVertex2f (0.1, -0.1);
-			glVertex2f (-0.15, -0.1); //ABAJO PEQ. 
-			glVertex2f (0.1, -0.1); 
-			glVertex2f (-0.15, 0.1); //ARRIBA PEQ. 
-			glVertex2f (0.1, 0.1); 
-
-// DIAGONALES ARRIBA
-			glVertex2f (-0.15, 0.1);  //izq
-			glVertex2f (-0.03, 0.18);
-			glVertex2f (0.1, 0.1);    //der
-			glVertex2f (0.2, 0.18);
-			glVertex2f (-0.03, 0.18);  //union
-			glVertex2f (0.2, 0.18);
-			glVertex2f (0.2, 0.18); //linea recta derecha
-			glVertex2f (0.2, -0.03);
-			glVertex2f (0.1, -0.1);
-			glVertex2f (0.2, -0.03);
-// DIAGONALES ABAJO			
-			glVertex2f (-0.15, -0.1); //izq
-			glVertex2f (-0.03, -0.03);
-			glVertex2f (-0.03, 0.18);
-			glVertex2f (-0.03, -0.03);
-			glVertex2f (-0.03, -0.03);
-			glVertex2f (0.2, -0.03);
 			
-//CUBO GRANDE
-			glColor3f(0.0f, 0.0f, 0.0f);
-			glVertex2f (-0.3, 0.3); //LADO IZQUIERDO 
-			glVertex2f (-0.3, -0.21);  
-			glVertex2f (0.35, 0.3); //LADO DERECHO 
-			glVertex2f (0.35, -0.21);
-			glVertex2f (-0.3, -0.21); //ABAJO 
-			glVertex2f (0.35, -0.21); 
-			glVertex2f (-0.3, 0.3); //ARRIBA  
-			glVertex2f (0.35, 0.3); 			
+			glVertex2f(-0.1,-0.1);
+			glVertex2f(-0.1,0.1);
 			
-//DIAGONALES ARRIBA
-			glVertex2f (-0.3, 0.3); //IZQU
-			glVertex2f (-0.1, 0.4);
-			glVertex2f (0.35, 0.3);//DER
-			glVertex2f (0.55, 0.4);
-			glVertex2f (-0.1, 0.4);	//UNION
-			glVertex2f (0.55, 0.4);
-			glVertex2f (0.55, 0.4); //LINEA RECTA DERECHA 
-			glVertex2f (0.55, -0.05);
-			glVertex2f (0.35, -0.21); //UNION DIAGONAL
-			glVertex2f (0.55, -0.05);
+			glVertex2f(0.1,-0.1);
+			glVertex2f(0.1,0.1);
 			
-//UNIONES DE CUBOS
-//ARRIBA
-		glColor3f(0.0f, 0.0f, 0.0f);
-		glVertex2f (-0.15, 0.1);
-		glVertex2f (-0.3, 0.3);
-		glVertex2f (-0.15, -0.1);
-		glVertex2f (-0.3, -0.21);
-		
-		glVertex2f (0.1, 0.1);
-		glVertex2f (0.35, 0.3);
-		
-		glVertex2f (0.1, -0.1);
-		glVertex2f (0.35, -0.21);
+			glVertex2f(-0.1,0.1);
+			glVertex2f(0.1,0.1);
+			
+			glVertex2f(-0.1,-0.1);
+			glVertex2f(0.1,-0.1);
 			
 			
-		glVertex2f (0.2, -0.03);
-		glVertex2f (0.55, -0.05);
+			glVertex2f(-0.1,0.1);
+			glVertex2f(-0.05,0.15);
 			
-		glVertex2f (0.2, 0.18);
-		glVertex2f (0.55, 0.4);
+			glVertex2f(-0.05,0.15);
+			glVertex2f(0.15,0.15);
 			
-		glVertex2f (-0.03, 0.18);
-		glVertex2f (-0.1, 0.4);
-		
-//LINEAS QUE UNEN AL CUBO GRANDE PREDETERMINADAS
-		glColor3f(0.0f, 0.0f, 0.0f);
-		glVertex2f (-0.1, 0.4);   //IZQUIERDA
-		glVertex2f (-0.1, -0.05);
-		
-		glVertex2f (0.55, -0.05);
-		glVertex2f (-0.099, -0.05);
-		
-		glVertex2f (-0.3, -0.21);
-		glVertex2f (-0.099, -0.05);		
-		
+		    glVertex2f(0.15,0.15);
+			glVertex2f(0.1,0.1);
+			
+			
+			glVertex2f(-0.1,-0.1);
+			glVertex2f(-0.05,-0.05);
+			
+			glVertex2f(0.15,-0.05);
+			glVertex2f(-0.05,-0.05);
+			
+			glVertex2f(0.15,-0.05);
+			glVertex2f(0.1,-0.1);
+			
+			
+			glVertex2f(-0.05,-0.05);
+			glVertex2f(-0.05,0.15);
+			
+			glVertex2f(0.15,-0.05);
+			glVertex2f(0.15,0.15);
+			
+			// Cubo grande
+			
+			glVertex2f(-0.5,-0.5);
+			glVertex2f(-0.5,0.3);
+			
+			glVertex2f(-0.5 ,0.3);
+			glVertex2f(0.3,0.3);
+			
+			glVertex2f(0.3,0.3);
+			glVertex2f(0.3,-0.5);
+			
+			glVertex2f(0.3,-0.5);
+			glVertex2f(-0.5,-0.5);
+			
+			
+			glVertex2f(-0.5,0.3);
+			glVertex2f(-0.2,0.5);
+			
+			glVertex2f(-0.2,0.5);
+			glVertex2f(0.6,0.5);
+			
+		    glVertex2f(0.6,0.5);
+			glVertex2f(0.3,0.3);
+			
+			
+			glVertex2f(-0.5,-0.5);
+			glVertex2f(-0.2,-0.3);
+			
+			glVertex2f(-0.2,-0.3);
+			glVertex2f(0.6,-0.3);
+			
+			glVertex2f(0.6,-0.3);
+			glVertex2f(0.3,-0.5);
+			
+			
+			glVertex2f(-0.2,-0.3);
+			glVertex2f(-0.2,0.5);
+			
+			glVertex2f(0.6,-0.3);
+			glVertex2f(0.6,0.5);
+			
+			
+			//Lineas que unen los dos cubos
+			
+			glVertex2f(-0.5,0.3);
+			glVertex2f(-0.1,0.1);
+			
+			glVertex2f(-0.05,0.15);
+			glVertex2f(-0.2,0.5);
+			
+			glVertex2f(-0.1,-0.1);
+			glVertex2f(-0.5,-0.5);
+			
+			glVertex2f(-0.05,-0.05);
+			glVertex2f(-0.2,-0.3);
+			
+			glVertex2f(0.1,-0.1);
+			glVertex2f(0.3,-0.5);
+			
+			glVertex2f(0.15,-0.05);
+			glVertex2f(0.6,-0.3);
+			
+			glVertex2f(0.1,0.1);
+			glVertex2f(0.3,0.3);
+			
+			glVertex2f(0.15,0.15);
+			glVertex2f(0.6,0.5);
+			
 			
             glEnd ();
             //glPopMatrix ();
